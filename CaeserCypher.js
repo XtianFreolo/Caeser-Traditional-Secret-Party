@@ -47,7 +47,7 @@ function encryptLetter(letter, shift) {
 
 // This encryption adds a random letter every two letters 
 
-function encrypt (message, shiftValue)
+function encrypt(message, shiftValue)
 {
   let encryptedMessage = "";
   let counter = 0;
@@ -72,7 +72,7 @@ function encrypt (message, shiftValue)
 
 function decryptLetter(letter, shift) {
 
-    const index = alphabet.indexOf(letter.toLowercase());
+    const index = alphabet.indexOf(letter.toLowerCase());
 // return if letter is not an alpha int.
     if (index === -1) {
         return letter;
@@ -93,20 +93,19 @@ function decryptLetter(letter, shift) {
 
 
 
+function decrypt(encryptedMessage, shiftValue) {
+    let decryptedMessage = "";
+    let counter = 0;
 
+    for (let i = 0; i < encryptedMessage.length; i++) {
+        if (counter === 2) {
+            counter = 0; 
+        } else {
+            decryptedMessage += decryptLetter(encryptedMessage[i], shiftValue);
+            counter++;
+        }
+    }
 
-
-
-
-
-function decrypt (encryptedMessage, shiftValue)
-{
-
- 
-
-
-
-
-  return decryptedMessage;
+ return decryptedMessage;
 }
 
