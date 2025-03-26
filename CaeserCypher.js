@@ -15,6 +15,8 @@ function isCapital(letter) {
     }
 }
 
+// helper function that supports the encryption by adding a random
+// letter in every 2 letters. 
 function randomLetter() {
     const randomIndex = Math.floor(Math.random() * alphabetFull.length);
     return alphabetFull[randomIndex];
@@ -43,13 +45,17 @@ function encryptLetter(letter, shift) {
 }
 
 
+// This encryption adds a random letter every two letters 
 
 function encrypt (message, shiftValue)
 {
   let encryptedMessage = "";
   let counter = 0;
 
+// loop for the encryption
   for (let i = 0; i < message.length; i++) {
+// counter is made so that every 2 letters, we can add a random letter. and counter 
+// goes back to zero
 
         if (counter === 2) {
             encryptedMessage += randomLetter();
