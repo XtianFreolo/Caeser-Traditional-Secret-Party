@@ -1,6 +1,7 @@
 alert("The CaeserCypher is working Sire");
 
 const alphabet = "abcdefghijklmnopqrstuvwxyz";
+const alphabetFull = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 // function isCapital made because we have to have a code that determines 
 // if letters are Capital or not.
@@ -14,15 +15,15 @@ function isCapital(letter) {
     }
 }
 
-
-function encrypt (message, shiftValue)
-{
-  // Your encryption code here
-  return encryptedMessage;
+function randomLetter() {
+    const randomIndex = Math.floor(Math.random() * alphabetFull.length);
+    return alphabet[randomIndex];
 }
+
 
 function encryptLetter(letter, shift) {
     const index = alphabet.indexOf(letter.toLowerCase());
+
  // this make sures the non-alphabetical integers are returned as is.
     if (index === -1) {
         return letter;
@@ -43,11 +44,24 @@ function encryptLetter(letter, shift) {
 
 
 
+function encrypt (message, shiftValue)
+{
+  let encryptedMessage = "";
+  let counter = 0;
 
+  for (let i = 0; i < message.length; i++) {
 
+        if (counter === 2) {
+            encryptedMessage += randomLetter();
+            counter = 0;
+        }
 
+        encryptedMessage += encryptLetter(message[i], shiftValue);
+        counter++;
+    }
 
-
+  return encryptedMessage;
+}
 
 
 
