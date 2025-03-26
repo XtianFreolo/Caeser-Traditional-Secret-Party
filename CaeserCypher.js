@@ -17,7 +17,7 @@ function isCapital(letter) {
 
 function randomLetter() {
     const randomIndex = Math.floor(Math.random() * alphabetFull.length);
-    return alphabet[randomIndex];
+    return alphabetFull[randomIndex];
 }
 
 
