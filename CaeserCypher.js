@@ -70,12 +70,43 @@ function encrypt (message, shiftValue)
 }
 
 
+function decryptLetter(letter, shift) {
+
+    const index = alphabet.indexOf(letter.toLowercase());
+// return if letter is not an alpha int.
+    if (index === -1) {
+        return letter;
+    }
+// reverse of encrypted letter logic. 
+    let newIndex = (index - shift) % alphabet.length;
+// we make sure that there are no negative numbers. add length of alphabet if value becomes negative. 
+    if (newIndex < 0) {
+        newIndex +=alphabet.length;
+    }
+// this makes sure that the capital letters are accounted for. 
+    if (isCapital(letter)) {
+        return alphabet[newIndex].toUpperCase();
+    } else {
+        return alphabet[newIndex];
+    }
+}
+
+
+
+
+
+
 
 
 
 function decrypt (encryptedMessage, shiftValue)
 {
-  // Your decryption code here
+
+ 
+
+
+
+
   return decryptedMessage;
 }
 
