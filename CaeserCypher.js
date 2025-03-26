@@ -96,11 +96,14 @@ function decryptLetter(letter, shift) {
 function decrypt(encryptedMessage, shiftValue) {
     let decryptedMessage = "";
     let counter = 0;
-
+// resets counter
     for (let i = 0; i < encryptedMessage.length; i++) {
         if (counter === 2) {
             counter = 0; 
-        } else {
+        }
+        else {
+        // decryptMessage using the logic of the decryptLetter which uses the encryptedMessage with the loop 
+        // of the current i. counter goes up, counter goes to 2, it resets to 0. 
             decryptedMessage += decryptLetter(encryptedMessage[i], shiftValue);
             counter++;
         }
